@@ -121,7 +121,7 @@ function download_install() {
 function start_app() {
     echo "Starting the SonicWall Cloud Secure Edge app as: $logged_on_user"
     #start app and disown from shell
-    sudo sudo -u "$logged_on_user" nohup /opt/sonicwallcse/sonicwallcseapp &>/dev/null & disown
+    sudo sudo -u "$logged_on_user" nohup /opt/SonicWall\ Cloud\ Secure\ Edge/SonicWallCSE &>/dev/null & disown
     sleep 5
 }
 
@@ -133,7 +133,7 @@ function stop_app() {
 
 function stage() {
       echo "Running staged deployment"
-      /opt/sonicwallcse/resources/bin/sonicwall-cse-admin stage --key=$DEPLOYMENT_KEY
+      /opt/SonicWall\ Cloud\ Secure\ Edge/resources/bin/sonicwall-cse-admin stage --key=$DEPLOYMENT_KEY
       [[ $? -ne 0 ]] && exit 1 # Exit if non-zero exit code
       sleep 3
       echo "Staged deployment done. Have the user start the sonicwall_cse_dir_name app to complete registration."
